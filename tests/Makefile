@@ -27,6 +27,8 @@ CXXFLAGS = \
 	       -Wall \
 	       -Wextra \
 	       -Wpedantic \
+		   -fprofile-arcs \
+		   -ftest-coverage \
 		   -fpie \
 	       -pie \
 		   -I ../include \
@@ -40,6 +42,9 @@ all: hello_world_test
 clean:
 	find .. -name "*.d" -type f -delete
 	find .. -name "*.o" -type f -delete
+	find .. -name "*.gcno" -type f -delete
+	find .. -name "*.gcda" -type f -delete
+	find .. -name "*.gcov" -type f -delete
 	find .. -name "hello_world_test" -type f -delete
 
 # The final product depends on the object files.
