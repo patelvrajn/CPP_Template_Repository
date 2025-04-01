@@ -15,6 +15,9 @@ test_objs = $(patsubst %.cpp,%.o,$(test_srcs))
 prog_depends = $(patsubst %.cpp,%.d,$(prog_srcs))
 test_depends = $(patsubst %.cpp,%.d,$(test_srcs))
 
+# Name of project
+PROJECT_NAME = hello_world_test
+
 # Compiler and compiler flags.
 CXX      = g++
 CXXFLAGS = \
@@ -36,7 +39,7 @@ CXXFLAGS = \
 
 .PHONY: all clean
 
-all: hello_world_test
+all: $(PROJECT_NAME)
 
 # Clean compile outputs from last make.
 clean:
@@ -45,10 +48,10 @@ clean:
 	find .. -name "*.gcno" -type f -delete
 	find .. -name "*.gcda" -type f -delete
 	find .. -name "*.gcov" -type f -delete
-	find .. -name "hello_world_test" -type f -delete
+	find .. -name "$(PROJECT_NAME)" -type f -delete
 
 # The final product depends on the object files.
-hello_world_test : $(prog_objs) $(test_objs)
+$(PROJECT_NAME) : $(prog_objs) $(test_objs)
 	$(CXX) $(CXXFLAGS) -o $@ $^ /usr/local/lib/libgtest.a
 
 # An object file depends on the respective cpp file.

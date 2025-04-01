@@ -11,6 +11,9 @@ objs = $(patsubst %.cpp,%.o,$(srcs))
 # Dependency information files (*.d)
 depends = $(patsubst %.cpp,%.d,$(srcs))
 
+# Name of project
+PROJECT_NAME = hello_world
+
 # Compiler and compiler flags.
 CXX      = g++
 CXXFLAGS = \
@@ -28,16 +31,16 @@ CXXFLAGS = \
 
 .PHONY: all clean
 
-all: hello_world
+all: $(PROJECT_NAME)
 
 # Clean compile outputs from last make.
 clean:
 	find .. -name "*.d" -type f -delete
 	find .. -name "*.o" -type f -delete
-	find .. -name "hello_world" -type f -delete
+	find .. -name "$(PROJECT_NAME)" -type f -delete
 
 # The final product depends on the object files.
-hello_world : $(objs)
+$(PROJECT_NAME) : $(objs)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # An object file depends on the respective cpp file.
