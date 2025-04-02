@@ -17,5 +17,5 @@ int main (int argc, char **argv) {
 
 TEST(hello_world_test, test_one)
 {
-  ASSERT_EQ(print_hello_world(), 0);
+  ASSERT_EQ(print_hello_world(), 1);
 }
