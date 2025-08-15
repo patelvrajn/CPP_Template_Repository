@@ -17,17 +17,17 @@ PROJECT_NAME = hello_world
 # Compiler and compiler flags.
 CXX      = g++
 CXXFLAGS = \
-		   -g \
-		   -std=c++17 \
-	       -O3 \
-	       -MMD \
-	       -MP \
-	       -Wall \
-	       -Wextra \
-	       -Wpedantic \
-		   -fpie \
-	       -pie \
-		   -I ../include
+		      -g \
+		      -std=c++23 \
+	        -O3 \
+	        -MMD \
+	        -MP \
+	        -Wall \
+	        -Wextra \
+	        -Wpedantic \
+		      -fpie \
+	        -pie \
+		      -I ../include
 
 .PHONY: all clean
 

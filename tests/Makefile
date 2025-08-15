@@ -21,21 +21,22 @@ PROJECT_NAME = hello_world_test
 # Compiler and compiler flags.
 CXX      = g++
 CXXFLAGS = \
-		   -g \
-		   -std=c++17 \
-		   -pthread \
-	       -O3 \
-	       -MMD \
-	       -MP \
-	       -Wall \
-	       -Wextra \
-	       -Wpedantic \
-		   -fprofile-arcs \
-		   -ftest-coverage \
-		   -fpie \
-	       -pie \
-		   -I ../include \
-		   -I /usr/local/include/gtest/
+		      -g \
+			    --coverage \
+			    -fprofile-abs-path \
+		      -std=c++23 \
+		      -pthread \
+	        -O0 \
+	        -MMD \
+	        -MP \
+	        -Wall \
+	        -Wextra \
+	        -Wpedantic \
+		      -fpie \
+		      -fsanitize=address,undefined \
+	        -pie \
+		      -I ../include \
+		      -I /usr/local/include/gtest/
 
 .PHONY: all clean
 
